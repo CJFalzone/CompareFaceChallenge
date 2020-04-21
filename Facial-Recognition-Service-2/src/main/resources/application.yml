@@ -1,0 +1,17 @@
+server:
+  port: 9884
+
+spring:  application:    name: fr-two
+
+eureka:  client:    service-url:      defaultZone: http://ec2-18-224-151-138.us-east-2.compute.amazonaws.com:9881/eureka
+#      defaultZone: http://localhost:9881/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:    instance-id: ${spring.application.name}:${random.value}
+    
+cloud:  aws:    stack:      auto: false
+    region:      static: us-east-2
+    credentials:      access-key: AKIAIMX37LUP47ARZ37Q      secret-key: TP8p+d3HroANw4lcNWakU751PyqL7pEM5ce7dlOF
+      
+logging:  level:
+    org.springframework: warn

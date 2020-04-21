@@ -1,0 +1,27 @@
+server:
+  port: 9882
+  
+spring:
+  application:
+    name: fr-zuul
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ec2-18-224-151-138.us-east-2.compute.amazonaws.com:9881/eureka
+#      defaultZone: http://localhost:9881/eureka
+      
+zuul:
+  routes:
+    one:
+      path: /upload/addimages
+      service-id: fr-one
+      strip-prefix: false
+    two:
+      path: /upload/compare
+      service-id: fr-two
+      strip-prefix: false
