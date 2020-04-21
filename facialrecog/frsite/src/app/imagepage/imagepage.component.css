@@ -1,0 +1,13 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+mat-vertical-stepper {
+  color: white;
+}
+p {
+  font-size: 20px;
+}

@@ -1,0 +1,63 @@
+<mat-vertical-stepper linear>
+  <mat-step label="Image 1" [completed]="step1Completed">
+    <p>Input Image One To Compare To Image Two.</p>
+    <br>
+    <div>
+      <form>
+        <div class="form-group">
+          <label for="imageFile1">Image One</label>
+          <input type="file" class="form-control-file" id="imageFile1" name="imageFile1"
+            (change)="onFileChanged1($event)">
+        </div>
+      </form>
+      <br>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Image 2" [completed]="step2Completed">
+    <p>Input Image Two To Compare To Image One And Three.</p>
+    <br>
+    <div>
+      <form>
+        <div class="form-group">
+          <label for="imageFile2">Image Two</label>
+          <input type="file" class="form-control-file" id="imageFile2" name="imageFile2"
+            (change)="onFileChanged2($event)">
+        </div>
+      </form>
+      <br>
+      <button mat-flat-button matStepperPrevious>Previous</button>
+      <button mat-flat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Image 3" [completed]="step3Completed">
+    <p>Input Image Three To Compare To Image Two</p>
+    <br>
+    <div>
+      <form>
+        <div class="form-group">
+          <label for="imageFile3">Image Three</label>
+          <input type="file" class="form-control-file" id="imageFile3" name="imageFile3"
+            (change)="onFileChanged3($event)">
+        </div>
+      </form>
+      <br>
+      <button mat-flat-button matStepperPrevious>Previous</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Compare">
+    <p>Click Upload And Let The Comparing Begin!</p>
+    <button type="submit" id="uploadImage" class="btn btn-primary" (click)="upload()">Upload!</button>
+  </mat-step>
+</mat-vertical-stepper>
+<br>
+<br>
+<div class="justify-content-center col-6" *ngIf="showSpinner">
+  <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
+  </mat-progress-spinner>
+</div>
+<div class="justify-content-center col-6" *ngFor="let result of results; first as isFirst">
+  <p *ngIf="isFirst">Image One and Image Two have a confidence match of {{result}}%</p>
+  <p *ngIf="!isFirst">Image Two and Image Three have a confidence match of {{result}}%</p>
+</div>
