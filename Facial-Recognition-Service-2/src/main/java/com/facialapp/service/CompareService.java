@@ -28,8 +28,7 @@ public class CompareService {
 
 		List<Float> confid = new ArrayList<>();
 
-		BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAIMX37LUP47ARZ37Q",
-				"TP8p+d3HroANw4lcNWakU751PyqL7pEM5ce7dlOF");
+		BasicAWSCredentials awsCreds = new BasicAWSCredentials("YOUR  ACCESS KEY ID", "YOUR SECRET ACCESS KEY");
 
 		AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard()
 				.withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion(Regions.US_EAST_2).build();

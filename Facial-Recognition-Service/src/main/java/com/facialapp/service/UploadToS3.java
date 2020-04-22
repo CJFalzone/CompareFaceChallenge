@@ -21,8 +21,7 @@ public class UploadToS3 {
 	public UploadToS3() {	}
 	
 	public void uploadToS3(File file1, File file2, File file3, String file1Name, String file2Name, String file3Name) {
-		BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAIMX37LUP47ARZ37Q",
-				"TP8p+d3HroANw4lcNWakU751PyqL7pEM5ce7dlOF");
+		BasicAWSCredentials awsCreds = new BasicAWSCredentials("YOUR  ACCESS KEY ID", "YOUR SECRET ACCESS KEY");
 
 		s3 = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds))
 				.withRegion(Regions.US_EAST_2).build();
